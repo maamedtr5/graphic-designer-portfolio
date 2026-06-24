@@ -5,8 +5,9 @@ import { WorksGrid } from "./components/WorkGrid";
 import { About } from "./components/About";
 import { Contact } from "./components/Contact";
 import { UploadModal } from "./components/UploadModal";
-import { useWorks } from "./hooks/useWorks";
+import { useWorks } from "./hooks/Useworks";
 import { SITE_CONFIG } from "./config";
+
 
 export default function App() {
   const [modalOpen, setModalOpen] = useState(false);
