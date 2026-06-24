@@ -28,7 +28,7 @@ export function Nav({ onUploadClick, userEmail, onLoginClick }: NavProps) {
     <nav className={`nav ${scrolled ? "nav--scrolled" : ""}`}>
       <button className="nav__logo" onClick={() => go("hero")}>
         <span className="nav__logo-name">{SITE_CONFIG.name.first}</span>
-        <span className="nav__logo-tag">✦ {SITE_CONFIG.name.last}</span>
+        <span className="nav__logo-tag"> {SITE_CONFIG.name.last}</span>
       </button>
 
       <div className={`nav__links ${open ? "nav__links--open" : ""}`}>
@@ -45,7 +45,7 @@ export function Nav({ onUploadClick, userEmail, onLoginClick }: NavProps) {
           </button>
         ) : (
           <button className="nav__login" onClick={() => { onLoginClick(); setOpen(false); }}>
-            Designer ✦
+            Designer 
           </button>
         )}
       </div>

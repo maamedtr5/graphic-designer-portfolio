@@ -34,7 +34,7 @@ export function Contact() {
 
       <footer className="site-footer">
         <span>© {new Date().getFullYear()} {name.first} {name.last}</span>
-        <span className="site-footer__hand">made with intent ✦</span>
+        <span className="site-footer__hand">made with intent </span>
       </footer>
     </section>
   );

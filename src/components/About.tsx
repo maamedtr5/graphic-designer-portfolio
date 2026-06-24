@@ -14,7 +14,7 @@ export function About() {
         <div className="about-section__right">
           {about.body.map((p, i) => <p key={i} className="about-section__body">{p}</p>)}
           <div className="about-section__sticker">
-            <span>✦</span>
+            <span></span>
             <span>Available</span>
           </div>
         </div>

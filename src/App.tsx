@@ -81,14 +81,14 @@ export default function App() {
             onKeyDown={e => e.key === "Enter" && handleLogin()}
           />
           <button className="login-panel__btn" onClick={handleLogin}>
-            Enter ✦
+            Enter 
           </button>
         </div>
       )}
 
       {isDesigner && (
         <div className="login-panel login-panel--active">
-          <p className="login-panel__label">✦ Designer mode on</p>
+          <p className="login-panel__label"> Designer mode on</p>
           <button
             className="login-panel__btn"
             onClick={() => setUserEmail(null)}

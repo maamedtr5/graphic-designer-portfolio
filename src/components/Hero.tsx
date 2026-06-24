@@ -33,7 +33,7 @@ export function Hero({ userEmail, onUploadClick }: HeroProps) {
 
       {/* Right annotation */}
       <div className="hero__note hero__note--tr">
-        <span className="hero__note-text">let me be your guide ✦</span>
+        <span className="hero__note-text">let me be your guide </span>
       </div>
 
       <div className="hero__center">
@@ -76,7 +76,7 @@ export function Hero({ userEmail, onUploadClick }: HeroProps) {
             className="hero__cta hero__cta--upload"
             onClick={onUploadClick}
           >
-            + Upload new work ✦
+            + Upload new work 
           </button>
         )}
       </div>
@@ -88,7 +88,7 @@ export function Hero({ userEmail, onUploadClick }: HeroProps) {
       {/* Bottom marquee strip */}
       <div className="hero__marquee" aria-hidden>
         <div className="hero__marquee-inner">
-          {Array(8).fill("DESIGN  ✦  ART  ✦  VISION  ✦  CRAFT  ✦ ").join(" ")}
+          {Array(8).fill("DESIGN    ART    VISION    CRAFT   ").join(" ")}
         </div>
       </div>
     </section>

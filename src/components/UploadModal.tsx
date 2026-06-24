@@ -86,7 +86,7 @@ export function UploadModal({ open, onClose, onAdd }: Props) {
       <div className="modal" onClick={e => e.stopPropagation()} role="dialog" aria-modal aria-label="Upload new work">
 
         <div className="modal__head">
-          <h2 className="modal__title">✦ Add new work</h2>
+          <h2 className="modal__title"> Add new work</h2>
           <button className="modal__close" onClick={close} aria-label="Close">✕</button>
         </div>
 
@@ -174,7 +174,7 @@ export function UploadModal({ open, onClose, onAdd }: Props) {
 
         <div className="modal__actions">
           <button className="modal__cancel" onClick={close}>Cancel</button>
-          <button className="modal__submit" onClick={handleSubmit}>Add to portfolio ✦</button>
+          <button className="modal__submit" onClick={handleSubmit}>Add to portfolio </button>
         </div>
 
       </div>
