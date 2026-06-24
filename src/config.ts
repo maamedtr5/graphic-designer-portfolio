@@ -1,6 +1,6 @@
 import type { SiteConfig, Work } from "./types";
 export const SITE_CONFIG: SiteConfig = {
-  name: { first: " Kwaku", last: "Ankomah" }, // ← change
+  name: { first: " Kwaku", last: "Ankomah" },
   roles: ["Graphic Designer", "Visual Artist", "Brand Storyteller"], 
   tagline: "Making ideas visible — one mark at a time.", 
   about: {
@@ -80,7 +80,7 @@ export const SEEDED_WORKS: Work[] = [
   id: "seed-7",
   title: "The Bear Poster",
   category: "Editorial",
-  src: "assets/works/the-bear-poster.jpg", // adjust to match your actual filename
+  src: "assets/works/the-bear-poster.jpg",
   description: "Bold red‑blue poster for 'The Bear', combining textured collage, minimalist typography, and dramatic visual contrast.",
   year: "2026",
   source: "seeded",
@@ -89,7 +89,7 @@ export const SEEDED_WORKS: Work[] = [
   id: "seed-8",
   title: "Hunny Sip Poster",
   category: "Branding",
-  src: "assets/works/hunny-sip-poster.jpg", // adjust to match your actual filename
+  src: "assets/works/hunny-sip-poster.jpg", 
   description: "Bright promotional poster for Hunny Sip beverages, showcasing traditional Ghanaian drinks and fresh fruit juices.",
   year: "2024",
   source: "seeded",
@@ -98,7 +98,7 @@ export const SEEDED_WORKS: Work[] = [
   id: "seed-9",
   title: "Pathways Collage",
   category: "Digital Art",
-  src: "assets/works/pathways-collage.jpg", // adjust to match your actual filename
+  src: "assets/works/pathways-collage.jpg", 
   description: "Philosophical digital collage combining stone statues, swirling distortions, and layered typography exploring human subjectivity.",
   year: "2025",
   source: "seeded",
@@ -107,7 +107,7 @@ export const SEEDED_WORKS: Work[] = [
   id: "seed-10",
   title: "Sobolo Mascot Logo",
   category: "Branding",
-  src: "/assets/works/sobolo-mascot-logo.jpg", // adjust to match your actual filename
+  src: "/assets/works/sobolo-mascot-logo.jpg", 
   description: "Playful logo design featuring a cartoon beverage can mascot promoting Special Sobolo hibiscus juice.",
   year: "2024",
   source: "seeded",
@@ -116,7 +116,7 @@ export const SEEDED_WORKS: Work[] = [
   id: "seed-11",
   title: "Matcha Tea Packaging",
   category: "Branding",
-  src: "assets/works/matcha-tea-packaging.jpg", // adjust to match your actual filename
+  src: "assets/works/matcha-tea-packaging.jpg", 
   description: "Clean modern packaging design for organic matcha tea, blending Japanese typography with a playful character illustration.",
   year: "2025",
   source: "seeded",
@@ -125,7 +125,7 @@ export const SEEDED_WORKS: Work[] = [
   id: "seed-12",
   title: "Matcha Me Packaging",
   category: "Branding",
-  src: "assets/works/matcha-me-packaging.jpg", // adjust to match your actual filename
+  src: "assets/works/matcha-me-packaging.jpg", 
   description: "Playful packaging design for Matcha Me organic tea, combining modern branding with traditional Japanese tea culture motifs.",
   year: "2025",
   source: "seeded",
@@ -134,7 +134,7 @@ export const SEEDED_WORKS: Work[] = [
   id: "seed-13",
   title: "Matcha Me Logo",
   category: "Branding",
-  src: "assets/works/matcha-me-logo.jpg", // adjust to match your actual filename
+  src: "assets/works/matcha-me-logo.jpg", 
   description: "Circular logo design for Matcha Me, featuring a playful character illustration with Japanese‑inspired elements and green leaf motifs.",
   year: "2025",
   source: "seeded",
@@ -143,7 +143,7 @@ export const SEEDED_WORKS: Work[] = [
   id: "seed-14",
   title: "Hunny Sip Logo",
   category: "Branding",
-  src: "assets/works/hunny-sip-logo.jpg", // adjust to match your actual filename
+  src: "assets/works/hunny-sip-logo.jpg", 
   description: "Warm circular logo for Hunny Sip, featuring a stylized jar illustration and artisanal beverage branding.",
   year: "2024",
   source: "seeded",
@@ -158,4 +158,4 @@ export const SEEDED_WORKS: Work[] = [
 
 
 
-];``
+];

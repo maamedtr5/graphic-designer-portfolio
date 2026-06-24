@@ -3,10 +3,11 @@ import { SITE_CONFIG } from "../config";
 
 interface NavProps {
   onUploadClick: () => void;
-  userEmail: string | null; 
+  userEmail: string | null;
+  onLoginClick: () => void;
 }
 
-export function Nav({ onUploadClick, userEmail }: NavProps) {
+export function Nav({ onUploadClick, userEmail, onLoginClick }: NavProps) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -35,15 +36,16 @@ export function Nav({ onUploadClick, userEmail }: NavProps) {
         <button onClick={() => go("about")}>About</button>
         <button onClick={() => go("contact")}>Contact</button>
 
-        {isDesigner && (
+        {isDesigner ? (
           <button
             className="nav__upload"
-            onClick={() => {
-              onUploadClick();
-              setOpen(false);
-            }}
+            onClick={() => { onUploadClick(); setOpen(false); }}
           >
             + Upload
+          </button>
+        ) : (
+          <button className="nav__login" onClick={() => { onLoginClick(); setOpen(false); }}>
+            Designer ✦
           </button>
         )}
       </div>

@@ -1,15 +1,18 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
 import { WorksGrid } from "./components/WorkGrid";
 import { About } from "./components/About";
 import { Contact } from "./components/Contact";
+import { UploadModal } from "./components/UploadModal";
 import { useWorks } from "./hooks/useWorks";
 import { SITE_CONFIG } from "./config";
 
 export default function App() {
   const [modalOpen, setModalOpen] = useState(false);
   const [userEmail, setUserEmail] = useState<string | null>(null);
+  const [loginVisible, setLoginVisible] = useState(false);
+  const emailRef = useRef<HTMLInputElement>(null);
 
   const {
     filteredWorks,
@@ -20,19 +23,25 @@ export default function App() {
     removeWork,
   } = useWorks();
 
-  // Designer-only guard
   const isDesigner = userEmail === SITE_CONFIG.designerEmail;
+
+  const handleLogin = () => {
+    const val = emailRef.current?.value?.trim() ?? "";
+    if (val) {
+      setUserEmail(val);
+      setLoginVisible(false);
+    }
+  };
 
   return (
     <>
-      {/* Navbar hides Upload unless designer */}
       <Nav
         onUploadClick={() => setModalOpen(true)}
         userEmail={userEmail}
+        onLoginClick={() => setLoginVisible(v => !v)}
       />
 
       <main>
-        {/* Hero can show designer-only upload shortcut */}
         <Hero
           userEmail={userEmail}
           onUploadClick={() => setModalOpen(true)}
@@ -44,7 +53,6 @@ export default function App() {
           activeCategory={activeCategory}
           onCategoryChange={setActiveCategory}
           onRemove={removeWork}
-          // Only allow upload if designer
           onUploadClick={() => isDesigner && setModalOpen(true)}
         />
 
@@ -52,24 +60,42 @@ export default function App() {
         <Contact />
       </main>
 
-      {/* Simple login form to set userEmail */}
-      <form
-  onSubmit={(e) => {
-    e.preventDefault();
-    const email = (e.currentTarget.elements.namedItem("email") as HTMLInputElement).value;
-    setUserEmail(email);
-  }}
->
-  <input
-    type="email"
-    name="email"
-    id="email"
-    placeholder="Enter your email"
-    autoComplete="email"
-  />
-  <button type="submit" className="login-btn">Login</button>
-</form>
+     
+      <UploadModal
+        open={modalOpen && isDesigner}
+        onClose={() => setModalOpen(false)}
+        onAdd={addWork}
+      />
 
+    
+      {loginVisible && !isDesigner && (
+        <div className="login-panel">
+          <p className="login-panel__label">Designer access</p>
+          <input
+            ref={emailRef}
+            type="email"
+            className="login-panel__input"
+            placeholder="your@email.com"
+            autoComplete="email"
+            onKeyDown={e => e.key === "Enter" && handleLogin()}
+          />
+          <button className="login-panel__btn" onClick={handleLogin}>
+            Enter ✦
+          </button>
+        </div>
+      )}
+
+      {isDesigner && (
+        <div className="login-panel login-panel--active">
+          <p className="login-panel__label">✦ Designer mode on</p>
+          <button
+            className="login-panel__btn"
+            onClick={() => setUserEmail(null)}
+          >
+            Log out
+          </button>
+        </div>
+      )}
     </>
   );
 }

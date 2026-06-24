@@ -7,7 +7,7 @@ export function About() {
       <div className="about-section__tape" />
       <div className="about-section__inner">
         <div className="about-section__left">
-          <span className="about-section__eyebrow">// about me</span>
+          <span className="about-section__eyebrow"> about me</span>
           <h2 className="about-section__headline">{about.headline}</h2>
           <div className="about-section__sig">— {name.first} {name.last}</div>
         </div>
