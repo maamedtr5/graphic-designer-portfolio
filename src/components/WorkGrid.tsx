@@ -8,6 +8,7 @@ interface Props {
   onCategoryChange: (c: WorkCategory) => void;
   onRemove: (id: string) => void;
   onUploadClick: () => void;
+  isDesigner: boolean;
 }
 
 export function WorksGrid({
@@ -17,6 +18,7 @@ export function WorksGrid({
   onCategoryChange,
   onRemove,
   onUploadClick,
+  isDesigner,
 }: Props) {
   return (
     <section id="work" className="works-section">
@@ -40,20 +42,24 @@ export function WorksGrid({
 
       {works.length === 0 ? (
         <div className="works-empty">
-          <p>No works yet — drop something in.</p>
-          <button onClick={onUploadClick} className="works-empty__cta">
-            + Upload your first piece
-          </button>
+          <p>No works yet.</p>
+          {isDesigner && (
+            <button onClick={onUploadClick} className="works-empty__cta">
+              + Upload your first piece
+            </button>
+          )}
         </div>
       ) : (
         <div className="works-grid">
           {works.map((w, i) => (
             <WorkCard key={w.id} work={w} onRemove={onRemove} index={i} />
           ))}
-          <button className="works-add-tile" onClick={onUploadClick}>
-            <span className="works-add-tile__plus">+</span>
-            <span className="works-add-tile__text">add work</span>
-          </button>
+          {isDesigner && (
+            <button className="works-add-tile" onClick={onUploadClick}>
+              <span className="works-add-tile__plus">+</span>
+              <span className="works-add-tile__text">add work</span>
+            </button>
+          )}
         </div>
       )}
     </section>

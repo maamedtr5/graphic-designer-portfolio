@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════════
-   SCRAPBOOK PORTFOLIO — Kelvin Kweku Oduro
+   SCRAPBOOK PORTFOLIO — Kelvin Kweku Ankomah
    Aesthetic: editorial / playful / warm
 ══════════════════════════════════════════════ */
 
@@ -52,12 +52,15 @@ input, select, textarea { font: inherit; }
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
   padding: var(--space-md) var(--gutter);
-  transition: background 0.3s, border-bottom 0.3s;
+  background: rgba(245,240,228,0.96);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: border-bottom 0.3s, box-shadow 0.3s;
 }
 .nav--scrolled {
-  background: rgba(245,240,228,0.92);
-  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 16px rgba(26,22,18,0.06);
 }
 .nav__logo { display: flex; flex-direction: column; line-height: 1.1; }
 .nav__logo-name {
@@ -185,28 +188,43 @@ input, select, textarea { font: inherit; }
   transform: rotate(3deg);
 }
 
-/* Marquee strip at bottom of hero */
-.hero__marquee {
-  width: 100%; overflow: hidden;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: var(--space-sm) 0;
+/* ── Hero bottom divider: scrapbook torn-paper edge ── */
+.hero__divider {
   margin-top: var(--space-xl);
+  position: relative;
+  width: 100%;
+  height: 48px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+/* Ink base strip */
+.hero__divider::before {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 24px;
   background: var(--ink);
-  color: var(--cream);
 }
-.hero__marquee-inner {
-  display: inline-block; 
-  white-space: nowrap;
-  font-family: var(--font-display);
-  font-size: 1rem; 
-  letter-spacing: 0.15em;
-  animation: marquee 40s linear alternate ;
-}
-
-@keyframes marquee {
-  from { transform: translateX(100%); }
-  to   { transform: translateX(-100%); }
+/* Torn/jagged SVG mask on top */
+.hero__divider::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 48px;
+  background: var(--cream);
+  clip-path: polygon(
+    0% 0%,   2% 60%,  4% 20%,  6% 80%,  8% 30%,
+    10% 70%, 12% 10%, 14% 55%, 16% 85%, 18% 25%,
+    20% 65%, 22% 5%,  24% 50%, 26% 90%, 28% 35%,
+    30% 75%, 32% 15%, 34% 60%, 36% 40%, 38% 80%,
+    40% 20%, 42% 70%, 44% 10%, 46% 55%, 48% 85%,
+    50% 25%, 52% 65%, 54% 5%,  56% 50%, 58% 90%,
+    60% 30%, 62% 75%, 64% 15%, 66% 60%, 68% 40%,
+    70% 80%, 72% 20%, 74% 70%, 76% 10%, 78% 55%,
+    80% 85%, 82% 25%, 84% 65%, 86% 5%,  88% 50%,
+    90% 90%, 92% 30%, 94% 75%, 96% 15%, 98% 60%,
+    100% 40%, 100% 0%
+  );
 }
 
 /* ══════════════════════════════════════════════
@@ -694,6 +712,13 @@ input, select, textarea { font: inherit; }
   white-space: nowrap;
 }
 .login-panel__btn:hover { background: var(--coral); }
+.login-panel__dismiss {
+  align-self: flex-end;
+  font-size: 0.75rem; color: var(--muted);
+  padding: 0; line-height: 1;
+  transition: color 0.2s;
+}
+.login-panel__dismiss:hover { color: var(--coral); }
 
 /* ══════════════════════════════════════════════
    HERO upload shortcut button
@@ -717,11 +742,18 @@ input, select, textarea { font: inherit; }
    RESPONSIVE
 ══════════════════════════════════════════════ */
 @media (max-width: 640px) {
+  /* Nav bar: fully solid on mobile, no blur transparency */
+  .nav {
+    background: var(--cream);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: 1px solid var(--border);
+  }
   .nav__links {
     display: none;
     position: fixed; inset: 0; top: 64px;
     flex-direction: column; align-items: center; justify-content: center;
-    background: var(--cream); gap: var(--space-lg); z-index: 99;
+    background: var(--cream); gap: var(--space-lg); z-index: 101;
   }
   .nav__links--open { display: flex; }
   .nav__links button { font-size: 1.3rem; }

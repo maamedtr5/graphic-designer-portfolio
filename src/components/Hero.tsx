@@ -85,12 +85,8 @@ export function Hero({ userEmail, onUploadClick }: HeroProps) {
       <div className="hero__tape hero__tape--1" />
       <div className="hero__tape hero__tape--2" />
 
-      {/* Bottom marquee strip */}
-      <div className="hero__marquee" aria-hidden>
-        <div className="hero__marquee-inner">
-          {Array(8).fill("DESIGN    ART    VISION    CRAFT   ").join(" ")}
-        </div>
-      </div>
+      {/* Scrapbook torn-paper edge — transitions hero into the works section */}
+      <div className="hero__divider" aria-hidden />
     </section>
   );
 }
